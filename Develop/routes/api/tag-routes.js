@@ -89,11 +89,10 @@ router.delete('/:id', (req, res) => {
     }
   }).then((tag) => {
     res.status(200).json(tag);
-  })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
+  }).catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
+  });
 });
 
 module.exports = router;
