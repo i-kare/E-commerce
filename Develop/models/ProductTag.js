@@ -10,14 +10,24 @@ ProductTag.init(
     id: {
       type: DataTypes.INTEGER, // integer
       allowNull: false, // doesn't allow null values
+      primaryKey: true,
+      autoIncrement: true
     },
     product_id: {
       type: DataTypes.INTEGER, // integer
-      allowNull: false, // doesn't allow null values
+      references: {
+        model: 'product',
+        key: 'id',
+        unique: false
+      }
     },
     tag_id: {
       type: DataTypes.INTEGER, // integer
-      allowNull: false, // doesn't allow null values
+      references: {
+        model: 'tag',
+        key: 'id',
+        unique: false
+      }
     },
   },
   {
