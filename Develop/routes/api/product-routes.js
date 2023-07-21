@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
     }).then((product) => {
       res.status(200).json(product);
     }).catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
     }).then((product) => {
       res.status(200).json(product);
     }).catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -134,7 +134,7 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
