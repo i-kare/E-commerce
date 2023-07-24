@@ -8,23 +8,19 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
     Product.findAll({
-      include: {
-        model: Category,
-        attributes: ['category_name'],
-        required: true,
-        include: {
-          model: ProductTag,
-          attributes: ['tag_id'],
+        attributes: ['id','product_name','price','stock'],
+        include: [{
+          model: Category,
+          attributes: ['category_name'],
           required: true,
-          include: {
-            model: Tag,
-            attributes: ['tag_name'],
-            required: true
-          }
-        }
-      }
+        },
+        {
+          model: Tag,
+          attributes: ['tag_name'],
+          required: true
+        }]
     }).then((product) => {
-      res.status(200).json(product);
+      res.json(product);
     }).catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -39,21 +35,16 @@ router.get('/:id', (req, res) => {
       where: {
         id: req.params.id
       },
-      include: {
+      include: [{
         model: Category,
         attributes: ['category_name'],
         required: true,
-        include: {
-          model: ProductTag,
-          attributes: ['tag_id'],
-          required: true,
-          include: {
-            model: Tag,
-            attributes: ['tag_name'],
-            required: true
-          }
-        }
-      }
+      },
+      {
+        model: Tag,
+        attributes: ['tag_name'],
+        required: true
+      }]
     }).then((product) => {
       res.status(200).json(product);
     }).catch((err) => {
