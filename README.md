@@ -14,6 +14,13 @@
 5.WHEN I test API POST, PUT, and DELETE routes in Insomnia Core THEN I am able to successfully create, update, and delete data in my database
 
 ## Walkthrough Video
+https://drive.google.com/file/d/1tjjtyZ10Va6iMioOcXWRn2i2_Z83G4q0/view?usp=sharing
 
+## How to run application
+1. Create .env file with sql information
+2. Npm install and npm run seed
+3. Npm run start
+4. Api call these endpoints, localhost:3001/api/tags, localhost:3001/api/products, localhost:3001/api/categories
+5. You can get all, get by id, post, put by id, delete by id
 
 
